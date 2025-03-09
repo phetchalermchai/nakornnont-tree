@@ -1,0 +1,26 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+        
+
+model Tree {
+  id           Int      @id @default(autoincrement())
+  community    String
+  subdistrict  String
+  treeName     String
+  species      String
+  height       Float
+  circumference Float
+  latitude     Float
+  longitude    Float
+  status       String
+  imageUrl     String?  // สำหรับ URL รูปภาพ (optional)
+  createdAt    DateTime @default(now())
+}
